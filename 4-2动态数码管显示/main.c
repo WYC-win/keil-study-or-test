@@ -34,31 +34,47 @@ void LED(unsigned char led_position,number)
 	P0=light_number[number];
 	Delay(1);
 	P0=0x00;
-	P2=0x1C;//无法使LED模块熄灭！！！
+	//P2=0x1C;//无法使LED模块熄灭！！！
 }
 
 void main()
 {
 	
 	
+	char a=0;
+	
 	while(1)
 	{
-		LED(1,1);
-		//Delay(1);
+		long i=0;
+		if(a==9)
+		{
+			a=0;
+		}
+		else
+		{
+			a++;
+		}
+		/*LED(1,1);
+		//Delay(500);
 		LED(2,2);
-		//Delay(1);
+		//Delay(500);
 		LED(3,3);
-		//Delay(1);
+		//Delay(500);
 		LED(4,4);
-		//Delay(1);
+		//Delay(500);
 		LED(5,5);
-		//Delay(1);
+		//Delay(500);
 		LED(6,6);
-		//Delay(1);
+		//Delay(500);
 		LED(7,7);
-		//Delay(1);
-		LED(8,8);
-		//Delay(1);
+		//Delay(500);*/
+		while(i<2000)
+		{
+			LED(8,a);
+			i++;
+		}
+		
+		//Delay(500);
 		//P2=0x1C;
 	}
 

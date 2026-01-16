@@ -1,45 +1,45 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              07/24/2025 22:20:13 PAGE 1   
+C51 COMPILER V9.57.0.0   MAIN                                                              01/16/2026 18:00:07 PAGE 1   
 
 
-C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
-                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+                    -.lst) OBJECT(.\Objects\main.obj)
 
 line level    source
 
    1          #include <REGX51.H>
-   2          void Delay(unsigned int xms)  //@11.030MHz
+   2          void Delay(unsigned int xms)    //@11.030MHz
    3          {
-   4   1        unsigned char data i, j;
-   5   1        while(xms)
-   6   1        {
-   7   2          i = 2;
-   8   2          j = 198;
-   9   2          do
-  10   2          {
-  11   3            while (--j);
-  12   3          } while (--i);
-  13   2          xms--;
-  14   2        }
-  15   1        
+   4   1              unsigned char data i, j;
+   5   1              while(xms)
+   6   1              {
+   7   2                      i = 2;
+   8   2                      j = 198;
+   9   2                      do
+  10   2                      {
+  11   3                              while (--j);
+  12   3                      } while (--i);
+  13   2                      xms--;
+  14   2              }
+  15   1              
   16   1      }
   17          
   18          void main()
   19          {
-  20   1        unsigned char LEDNum=0;
-  21   1        while(1)
-  22   1        {
-  23   2          if(P3_1==0)
-  24   2          {
-  25   3            Delay(20);
-  26   3            while(P3_1==0);//test if open
-  27   3            Delay(20);
-  28   3            
-  29   3            LEDNum++;//1111 1111    0000 0000    0000 0001   0000 0010   0000 0011
-  30   3            P2=~LEDNum;//           1111 1111    1111 1110
-  31   3          }
-  32   2        }
+  20   1              unsigned char LEDNum=0;
+  21   1              while(1)
+  22   1              {
+  23   2                      if(P3_1==0)
+  24   2                      {
+  25   3                              Delay(20);
+  26   3                              while(P3_1==0);//test if open
+  27   3                              Delay(20);
+  28   3                              
+  29   3                              LEDNum++;//1111 1111    0000 0000    0000 0001   0000 0010   0000 0011
+  30   3                              P2=~LEDNum;//           1111 1111    1111 1110
+  31   3                      }
+  32   2              }
   33   1      }
 
 
