@@ -1,9 +1,43 @@
 #include <REGX52.H>
 #include "Delay.h"
 #include "LCD1602.h"
-#include "MatrixKey.h"
 #include <math.h>
 
+unsigned char MatrixKey()
+{
+	unsigned char KeyNumber=0;
+	
+	P1=0xFF;
+	P1_3=0;
+	if(P1_7==0){Delay(20);while(P1_7==0);Delay(20);KeyNumber=1;}
+	if(P1_6==0){Delay(20);while(P1_6==0);Delay(20);KeyNumber=4;}
+	if(P1_5==0){Delay(20);while(P1_5==0);Delay(20);KeyNumber=7;}
+	if(P1_4==0){Delay(20);while(P1_4==0);Delay(20);KeyNumber=11;}
+	
+	P1=0xFF;
+	P1_2=0;
+	if(P1_7==0){Delay(20);while(P1_7==0);Delay(20);KeyNumber=2;}
+	if(P1_6==0){Delay(20);while(P1_6==0);Delay(20);KeyNumber=5;}
+	if(P1_5==0){Delay(20);while(P1_5==0);Delay(20);KeyNumber=8;}
+	if(P1_4==0){Delay(20);while(P1_4==0);Delay(20);KeyNumber=10;}
+	
+	P1=0xFF;
+	P1_1=0;
+	if(P1_7==0){Delay(20);while(P1_7==0);Delay(20);KeyNumber=3;}
+	if(P1_6==0){Delay(20);while(P1_6==0);Delay(20);KeyNumber=6;}
+	if(P1_5==0){Delay(20);while(P1_5==0);Delay(20);KeyNumber=9;}
+	if(P1_4==0){Delay(20);while(P1_4==0);Delay(20);KeyNumber=12;}
+	
+	P1=0xFF;
+	P1_0=0;
+	if(P1_7==0){Delay(20);while(P1_7==0);Delay(20);KeyNumber=0;}
+	if(P1_6==0){Delay(20);while(P1_6==0);Delay(20);KeyNumber=0;}
+	if(P1_5==0){Delay(20);while(P1_5==0);Delay(20);KeyNumber=0;}
+	if(P1_4==0){Delay(20);while(P1_4==0);Delay(20);KeyNumber=0;}
+	
+	return KeyNumber;
+
+}
 unsigned char KeyNum;
 unsigned int Password,count;
 unsigned long tem,tem1;
@@ -63,7 +97,7 @@ void main()
 					LCD_ShowString(1,14,"   ");
 					LCD_ShowString(2,1,"              ");
 					LCD_ShowString(1,1,"              ");
-					LCD_ShowString(1,1,"WYC:SGG of CUGB");
+					LCD_ShowString(1,1,"WYC:SGI of CUGB");
 					LCD_ShowString(2,1,"ID : 1011241110");
 					Password=0;
 					count=1;
