@@ -6,7 +6,7 @@ unsigned char Sec,Min,Hour;
 void main()
 {
 	Sec=00;
-	Min=42;
+	Min=55;
 	Hour=21;
 	LCD_Init();
 	Timer0_Init();

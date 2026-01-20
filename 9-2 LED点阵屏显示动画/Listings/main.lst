@@ -1,0 +1,63 @@
+C51 COMPILER V9.57.0.0   MAIN                                                              01/20/2026 16:47:55 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          #include "matrixled.h"
+   4          
+   5          
+   6          unsigned char tem[]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xFF,0x01,0x01,0x01,0x01,0x00,0x3E,0x22,0x22,
+             -0x22,0x3E,0x00,0x00,0x7F,0x01,0x01,
+   7          0x01,0x01,0x01,0x00,0x00,0x00,0x3F,0x25,0x25,0x25,0x3D,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0
+             -x00,0x00,0x00,};
+   8          
+   9          void main()
+  10          {
+  11   1              unsigned char p=0,q=0,count=0;
+  12   1              void matrixled_init();
+  13   1              while(1)
+  14   1              {
+  15   2                      for(p=0;p<8;p++)
+  16   2                      {
+  17   3                              matrixled_showcolumn(p,tem[p+q]);
+  18   3                      }
+  19   2                      count++;
+  20   2                      if(count>10)
+  21   2                      {
+  22   3                              count=0;
+  23   3                              q++;
+  24   3                              if(q>40)
+  25   3                              {
+  26   4                                      q=0;
+  27   4                              }
+  28   3                      }
+  29   2                              
+  30   2              }
+  31   1              //matrixled_showcolumn(1,0xFF);
+  32   1              while(1)
+  33   1              {
+  34   2      //              _74HC595_WriteByte(0x00);
+  35   2      //              P0=0xFF;
+  36   2              }
+  37   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     48       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
